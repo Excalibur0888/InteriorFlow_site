@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
-	$to = "support@" . $_SERVER['HTTP_HOST'];
+	$to = "interiorflow@gmail.com";
     $subject = "New Contact Form Submission";
     $body = "Name: $name\n";
     $body .= "Email: $email\n";
