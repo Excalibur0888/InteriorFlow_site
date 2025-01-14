@@ -691,7 +691,7 @@ template {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-top: clamp(0.625rem, 3.2386363636vw - 0.0227272727rem, 2.40625rem);
+  padding: clamp(0.625rem, 2vw - 0.0227272727rem, 1.5rem) 0;
   -webkit-transition: padding 0.2s ease-in-out;
   transition: padding 0.2s ease-in-out;
 }
@@ -1763,6 +1763,36 @@ template {
   -webkit-transition: stroke 0.2s ease;
   transition: stroke 0.2s ease;
 }
+
+.footer__form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.footer__form-checkbox-input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+.footer__form-checkbox-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-gray);
+}
+
+.footer__form-checkbox-label a {
+  color: var(--color-dark-gray);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.footer__form-checkbox-label a:hover {
+  color: var(--color-accent);
+}
+
 .footer__socials {
   -ms-flex-item-align: end;
   align-self: flex-end;
