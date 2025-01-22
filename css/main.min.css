@@ -415,11 +415,19 @@ template {
   -webkit-transition: font-size 0.2s ease-in-out;
   transition: font-size 0.2s ease-in-out;
 }
-.discuss {
+.discuss,
+.about-discuss,
+.contact-discuss,
+.services-discuss,
+.teams-discuss {
   background: var(--color-accent);
   padding-block: clamp(1.875rem, 2.2123893805vw + 0.8130530973rem, 2.5rem);
 }
-.discuss__container {
+.discuss__container,
+.about-discuss__container,
+.contact-discuss__container,
+.services-discuss__container,
+.teams-discuss__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -430,12 +438,20 @@ template {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.discuss__title {
+.discuss__title,
+.about-discuss__title,
+.contact-discuss__title,
+.services-discuss__title,
+.teams-discuss__title {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 51.0833333333%;
   flex: 0 1 51.0833333333%;
 }
-.discuss__content {
+.discuss__content,
+.about-discuss__content,
+.contact-discuss__content,
+.services-discuss__content,
+.teams-discuss__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -673,6 +689,7 @@ template {
 }
 .header {
   background: var(--color-light);
+  padding: 0 20px;
   position: fixed;
   z-index: 300;
   width: 100%;
@@ -1581,16 +1598,33 @@ template {
   justify-content: space-between;
 }
 .location__info-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-transition: gap 0.2s ease-in-out;
-  transition: gap 0.2s ease-in-out;
-  gap: clamp(1.75rem, 1.1574074074vw + 1.1944444444rem, 2.0625rem);
+  flex-wrap: wrap;
+  gap: 30px
+}
+
+.location__info-item {
+  width: calc(33.333% - 20px)
+}
+
+@media (max-width: 768px) {
+  .location__info-item {
+    width: calc(50% - 15px)
+  }
+  
+  .location__info-item:last-child {
+    width: 100%
+  }
+}
+
+@media (max-width: 576px) {
+  .location__info-list {
+    gap: 15px
+  }
+  
+  .location__info-item {
+    width: calc(50% - 8px)
+  }
 }
 .location__info-title {
   margin: 0;
@@ -1657,7 +1691,15 @@ template {
   transition: padding 0.5s ease;
   padding-block: var(--section-offset-y);
 }
-.footer__container {
+.footer__container,
+.about-footer__container,
+.contact-footer__container,
+.main-footer__container,
+.policy-footer__container,
+.services-footer__container,
+.teams-footer__container,
+.terms-footer__container,
+.thanks-footer__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1665,12 +1707,28 @@ template {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.footer__content {
+.footer__content,
+.about-footer__content,
+.contact-footer__content,
+.main-footer__content,
+.policy-footer__content,
+.services-footer__content,
+.teams-footer__content,
+.terms-footer__content,
+.thanks-footer__content {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 40.0833333333%;
   flex: 0 1 40.0833333333%;
 }
-.footer__contact {
+.footer__discuss,
+.about-footer__discuss,
+.contact-footer__discuss,
+.main-footer__discuss,
+.policy-footer__discuss,
+.services-footer__discuss,
+.teams-footer__discuss,
+.terms-footer__discuss,
+.thanks-footer__discuss {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1684,112 +1742,18 @@ template {
   padding-top: 32px;
   row-gap: 2.1875rem;
 }
-.footer__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.footer__links,
+.about-footer__links,
+.contact-footer__links,
+.main-footer__links,
+.policy-footer__links,
+.services-footer__links,
+.teams-footer__links,
+.terms-footer__links,
+.thanks-footer__links {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  row-gap: 0.625rem;
-}
-.footer__form-label {
-  font-size: clamp(1rem, 0.462962963vw + 0.7777777778rem, 1.125rem);
-  line-height: 1.6;
-}
-.footer__form-label::before {
-  background: var(--color-dark-gray);
-  content: "";
-  display: inline-block;
-  margin-right: 0.625rem;
-  border-radius: 100%;
-  width: 0.7777777778em;
-  aspect-ratio: 1;
-}
-.footer__form-field {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  border-bottom: var(--border);
-}
-.footer__form-input {
-  padding-bottom: 0.9375rem;
-  width: 100%;
-  min-height: var(--button-height);
-  font-family: var(--font-family-base);
-}
-.footer__form-input::-webkit-input-placeholder {
-  line-height: 1.6;
-  color: var(--color-light-gray);
-}
-.footer__form-input::-moz-placeholder {
-  line-height: 1.6;
-  color: var(--color-light-gray);
-}
-.footer__form-input:-ms-input-placeholder {
-  line-height: 1.6;
-  color: var(--color-light-gray);
-}
-.footer__form-input::-ms-input-placeholder {
-  line-height: 1.6;
-  color: var(--color-light-gray);
-}
-.footer__form-input::placeholder {
-  line-height: 1.6;
-  color: var(--color-light-gray);
-}
-.footer__form-input:focus {
-  outline: 0;
-}
-.footer__form-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-.footer__form-button svg path {
-  -webkit-transition: stroke 0.2s ease;
-  transition: stroke 0.2s ease;
-}
-
-.footer__form-checkbox {
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
-  margin-top: 0.75rem;
-}
-
-.footer__form-checkbox-input {
-  width: 1rem;
-  height: 1rem;
-  margin: 0;
-}
-
-.footer__form-checkbox-label {
-  font-size: 0.875rem;
-  line-height: 1.4;
   color: var(--color-gray);
-}
-
-.footer__form-checkbox-label a {
-  color: var(--color-dark-gray);
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-.footer__form-checkbox-label a:hover {
-  color: var(--color-accent);
-}
-
-.footer__socials {
-  -ms-flex-item-align: end;
-  align-self: flex-end;
 }
 @media (min-width: 768px) {
   .visible-mobile {
@@ -1833,12 +1797,31 @@ template {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  .discuss__container {
+  .discuss__container,
+  .about-discuss__container,
+  .contact-discuss__container,
+  .services-discuss__container,
+  .teams-discuss__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
     row-gap: 2.1875rem;
+  }
+  .footer__container,
+  .about-footer__container,
+  .contact-footer__container,
+  .main-footer__container,
+  .policy-footer__container,
+  .services-footer__container,
+  .teams-footer__container,
+  .terms-footer__container,
+  .thanks-footer__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    row-gap: 1.875rem;
   }
   .menu {
     position: fixed;
@@ -2153,4 +2136,199 @@ template {
   .our-values__card {
     padding: 30px;
   }
+}
+
+.footer__form,
+.about-footer__form,
+.contact-footer__form,
+.main-footer__form,
+.policy-footer__form,
+.services-footer__form,
+.teams-footer__form,
+.terms-footer__form,
+.thanks-footer__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 0.625rem;
+}
+
+.footer__form-label,
+.about-footer__form-label,
+.contact-footer__form-label,
+.main-footer__form-label,
+.policy-footer__form-label,
+.services-footer__form-label,
+.teams-footer__form-label,
+.terms-footer__form-label,
+.thanks-footer__form-label {
+  font-size: clamp(1rem, 0.462962963vw + 0.7777777778rem, 1.125rem);
+  line-height: 1.6;
+}
+
+.footer__form-label::before,
+.about-footer__form-label::before,
+.contact-footer__form-label::before,
+.main-footer__form-label::before,
+.policy-footer__form-label::before,
+.services-footer__form-label::before,
+.teams-footer__form-label::before,
+.terms-footer__form-label::before,
+.thanks-footer__form-label::before {
+  background: var(--color-dark-gray);
+  content: "";
+  display: inline-block;
+  margin-right: 0.625rem;
+  border-radius: 100%;
+  width: 0.7777777778em;
+  aspect-ratio: 1;
+}
+
+.footer__form-field,
+.about-footer__form-field,
+.contact-footer__form-field,
+.main-footer__form-field,
+.policy-footer__form-field,
+.services-footer__form-field,
+.teams-footer__form-field,
+.terms-footer__form-field,
+.thanks-footer__form-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: var(--border);
+}
+
+.footer__form-input,
+.about-footer__form-input,
+.contact-footer__form-input,
+.main-footer__form-input,
+.policy-footer__form-input,
+.services-footer__form-input,
+.teams-footer__form-input,
+.terms-footer__form-input,
+.thanks-footer__form-input {
+  padding-bottom: 0.9375rem;
+  width: 100%;
+  min-height: var(--button-height);
+  font-family: var(--font-family-base);
+}
+
+.footer__form-input::placeholder,
+.about-footer__form-input::placeholder,
+.contact-footer__form-input::placeholder,
+.main-footer__form-input::placeholder,
+.policy-footer__form-input::placeholder,
+.services-footer__form-input::placeholder,
+.teams-footer__form-input::placeholder,
+.terms-footer__form-input::placeholder,
+.thanks-footer__form-input::placeholder {
+  line-height: 1.6;
+  color: var(--color-light-gray);
+}
+
+.footer__form-button,
+.about-footer__form-button,
+.contact-footer__form-button,
+.main-footer__form-button,
+.policy-footer__form-button,
+.services-footer__form-button,
+.teams-footer__form-button,
+.terms-footer__form-button,
+.thanks-footer__form-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.footer__form-button svg path,
+.about-footer__form-button svg path,
+.contact-footer__form-button svg path,
+.main-footer__form-button svg path,
+.policy-footer__form-button svg path,
+.services-footer__form-button svg path,
+.teams-footer__form-button svg path,
+.terms-footer__form-button svg path,
+.thanks-footer__form-button svg path {
+  -webkit-transition: stroke 0.2s ease;
+  transition: stroke 0.2s ease;
+}
+
+.footer__form-checkbox,
+.about-footer__form-checkbox,
+.contact-footer__form-checkbox,
+.main-footer__form-checkbox,
+.policy-footer__form-checkbox,
+.services-footer__form-checkbox,
+.teams-footer__form-checkbox,
+.terms-footer__form-checkbox,
+.thanks-footer__form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.footer__form-checkbox-input,
+.about-footer__form-checkbox-input,
+.contact-footer__form-checkbox-input,
+.main-footer__form-checkbox-input,
+.policy-footer__form-checkbox-input,
+.services-footer__form-checkbox-input,
+.teams-footer__form-checkbox-input,
+.terms-footer__form-checkbox-input,
+.thanks-footer__form-checkbox-input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+.footer__form-checkbox-label,
+.about-footer__form-checkbox-label,
+.contact-footer__form-checkbox-label,
+.main-footer__form-checkbox-label,
+.policy-footer__form-checkbox-label,
+.services-footer__form-checkbox-label,
+.teams-footer__form-checkbox-label,
+.terms-footer__form-checkbox-label,
+.thanks-footer__form-checkbox-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-gray);
+}
+
+.footer__form-checkbox-label a,
+.about-footer__form-checkbox-label a,
+.contact-footer__form-checkbox-label a,
+.main-footer__form-checkbox-label a,
+.policy-footer__form-checkbox-label a,
+.services-footer__form-checkbox-label a,
+.teams-footer__form-checkbox-label a,
+.terms-footer__form-checkbox-label a,
+.thanks-footer__form-checkbox-label a {
+  color: var(--color-dark-gray);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.footer__form-checkbox-label a:hover,
+.about-footer__form-checkbox-label a:hover,
+.contact-footer__form-checkbox-label a:hover,
+.main-footer__form-checkbox-label a:hover,
+.policy-footer__form-checkbox-label a:hover,
+.services-footer__form-checkbox-label a:hover,
+.teams-footer__form-checkbox-label a:hover,
+.terms-footer__form-checkbox-label a:hover,
+.thanks-footer__form-checkbox-label a:hover {
+  color: var(--color-accent);
 }
